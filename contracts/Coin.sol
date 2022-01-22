@@ -22,7 +22,7 @@ contract Coin is IERC20, Ownable {
     constructor() {
         _name = "Coin";
         _symbol = "COIN";
-        _totalSupply = 3000;
+        _totalSupply = 1000000;
         _decimals = 12;
     }
 
