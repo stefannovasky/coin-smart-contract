@@ -12,15 +12,9 @@ contract('Coin balanceOf method tests', accounts => {
     contractInstance = await Artifact.new();
   });
 
-  const setAccountBalance = async (address, amount) => {
-    await contractInstance.mintTo(address, amount);
-  };
-
   it('balanceOf should success', async () => {
-    await setAccountBalance(ownerAddress, 100);
-
     const result = await contractInstance.balanceOf(ownerAddress, { from: ownerAddress });
 
-    assert.equal(result.toNumber(), 100, 'balance is wrong');
+    assert.equal(result.toNumber(), 1000000, 'balance is wrong');
   });
 });
