@@ -22,8 +22,9 @@ contract Coin is IERC20, Ownable {
     constructor() {
         _name = "Coin";
         _symbol = "COIN";
-        _totalSupply = 1000000;
         _decimals = 12;
+
+        mintTo(msg.sender, 1000000);
     }
 
     function name() public view returns (string memory) {
