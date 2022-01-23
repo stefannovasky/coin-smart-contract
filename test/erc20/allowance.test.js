@@ -13,12 +13,12 @@ contract('Coin allowance method tests', accounts => {
     contractInstance = await Artifact.new();
   });
 
-  it('should alert error when not allowed', async () => {
+  it('allowance method should alert error when not allowed', async () => {
     const result = await contractInstance.allowance(ownerAddress, otherAddress, { from: ownerAddress })
     assert.equal(0, result.toNumber(), 'wrong result');
   });
 
-  it('allowance should success', async () => {
+  it('allowance method should success', async () => {
     const expectedAmount = 100;
 
     await contractInstance.approve(otherAddress, expectedAmount, { from: ownerAddress });

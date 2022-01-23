@@ -15,21 +15,21 @@ contract('Coin burnFrom method tests', accounts => {
     contractInstance = await Artifact.new();
   });
 
-  it('burnFrom should alert error when address is invalid', async () => {
+  it('burnFrom method should alert error when address is invalid', async () => {
     await Assert.reverts(
       contractInstance.burnFrom('0x0000000000000000000000000000000000000000', 1000, { from: ownerAddress }),
       'ERC20: from address is not valid'
     );
   });
 
-  it('burnFrom should alert error when balance is insufficient', async () => {
+  it('burnFrom method should alert error when balance is insufficient', async () => {
     await Assert.reverts(
       contractInstance.burnFrom(otherAddress, 1000, { from: ownerAddress }),
       'ERC20: insufficient balance'
     );
   });
 
-  it('burnFrom should alert error when account is not a owner', async () => {
+  it('burnFrom method should alert error when account is not a owner', async () => {
     await contractInstance.mintTo(otherAddress, 1000, { from: ownerAddress });
 
     await Assert.reverts(
@@ -38,7 +38,7 @@ contract('Coin burnFrom method tests', accounts => {
     );
   });
 
-  it('burnFrom should success', async () => {
+  it('burnFrom method should success', async () => {
     const mintValue = 1000;
     const burnValue = 500;
     const expectedBalance = 500;
