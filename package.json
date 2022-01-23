@@ -21,5 +21,8 @@
     "truffle": "^5.4.30",
     "truffle-deploy-registry": "^0.5.1",
     "web3": "^1.7.0"
+  },
+  "scripts": {
+    "test": "docker run -d -p 8545:7545 --name testrpc wbuchwalter/testrpc  && truffle test"
   }
 }
