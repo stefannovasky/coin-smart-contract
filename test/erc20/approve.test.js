@@ -15,7 +15,7 @@ contract('Coin approve method tests', accounts => {
     contractInstance = await Artifact.new();
   });
 
-  it('approve should success', async () => {
+  it('approve method should success', async () => {
     const result = await contractInstance.approve(otherAddress, 1000, { from: ownerAddress });
 
     Assert.eventEmitted(result, 'Approval');

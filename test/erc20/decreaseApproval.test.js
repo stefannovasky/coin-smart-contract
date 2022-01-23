@@ -14,7 +14,7 @@ contract('Coin decreaseApproval method tests', accounts => {
     contractInstance = await Artifact.new();
   });
 
-  it('method decreaseApproval should success', async () => {
+  it('decreaseApproval method should success', async () => {
     const initialAmount = 1000;
     const expectedAmount = 500;
 

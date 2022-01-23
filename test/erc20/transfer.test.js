@@ -16,7 +16,7 @@ contract('Coin transfer method tests', accounts => {
     await contractInstance.mintTo(ownerAddress, 1000);
   });
 
-  it('transfer should alert error when address is invalid', async () => {
+  it('transfer method should alert error when address is invalid', async () => {
     const invalidAddress = '0x0000000000000000000000000000000000000000';
     await Assert.reverts(
       contractInstance.transfer(invalidAddress, 1000, { from: ownerAddress }),
@@ -24,14 +24,14 @@ contract('Coin transfer method tests', accounts => {
     );
   });
 
-  it('transfer should alert error when balance is insufficient', async () => {
+  it('transfer method should alert error when balance is insufficient', async () => {
     await Assert.reverts(
       contractInstance.transfer(ownerAddress, 1000, { from: otherAddress }),
       'Transaction Error: insufficient balance'
     );
   });
 
-  it('transfer success', async () => {
+  it('transfer method success', async () => {
     const result = await contractInstance.transfer(otherAddress, 1000, { from: ownerAddress });
 
     Assert.eventEmitted(result, 'Transfer');
