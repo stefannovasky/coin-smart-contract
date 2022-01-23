@@ -18,7 +18,9 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
-      - run: docker run -it -v $(pwd):/app ethereum/client-go --datadir /app/geth/data init /app/genesis.json
+      - run: 
+          name: "vray"
+          command: docker run -it -v $(pwd):/app ethereum/client-go --datadir /app/geth/data init /app/genesis.json
       - run: docker run -d -p 8545:7545 -v $(pwd):/app ethereum/client-go --datadir /app/geth/data --networkid 20170123 --rpc --unlock 0x322ba17d251afdb6d84fd288b5aef518208cccb9 --password /app/password --rpcaddr "0.0.0.0" --verbosity 5
       - run: node scripts/waitForEthSync.js
       - run: truffle migrate
